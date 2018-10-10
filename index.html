@@ -1,0 +1,49 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script> 
+      google.charts.load('current', {'packages':['sankey']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'From');
+        data.addColumn('string', 'To');
+        data.addColumn('number', 'Weight');
+        data.addRows([
+          [ 'Interviews', 'D-Squad', 26 ],
+          [ 'Interviews', 'ATS', 46 ],
+          [ 'Interviews', 'Modernise IT', 25 ],
+          [ 'Interviews', 'Tech Environments', 12],
+          [ 'Interviews', 'Other', 5],
+          [ 'Interviews', 'TBC', 51],
+          [ 'Research', 'D-Squad', 27 ],
+          [ 'Research', 'ATS', 14 ],
+          [ 'Research', 'Modernise IT', 2 ],
+          [ 'Research', 'Tech Environments', 1],
+          [ 'Research', 'Other', 0],
+          [ 'Research', 'TBC', 17],
+          [ 'Workshops', 'D-Squad', 13 ],
+          [ 'Workshops', 'ATS', 10 ],
+          [ 'Workshops', 'Modernise IT', 1 ],
+          [ 'Workshops', 'Tech Environments', 0],
+          [ 'Workshops', 'Other', 4],
+          [ 'Workshops', 'TBC', 0],
+        ]);
+
+        // Sets chart options.
+        var options = {
+          width: 600,
+	  sankey: {
+		iterations: 0,
+	  }
+        };
+
+        // Instantiates and draws our chart, passing in some options.
+        var chart = new google.visualization.Sankey(document.getElementById('sankey_basic'));
+        chart.draw(data, options);
+      }
+</script>
+
+
+
+       <div id="sankey_basic" style="width: 1800px; height: 600px;"></div>
+   
